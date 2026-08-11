@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Env files
+.env
+.env.local
+.env*.local
+!.env.example
+!.env.local.example
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Playwright
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+
+# Prisma
+backend/prisma/migrations/dev.db
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS
+.DS_Store
+
+# Build
+frontend/build/
+backend/dist/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
