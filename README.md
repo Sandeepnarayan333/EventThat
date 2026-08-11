@@ -302,3 +302,27 @@ await page.fill('[data-testid="customer-phone"]', '9876543210');
 await page.click('[data-testid="confirm-booking-btn"]');
 await expect(page.locator('[data-testid="booking-ref"]')).toBeVisible();
 ```
+
+## Running Tests with Docker
+
+Tests target the hosted deployment (`baseURL` in [playwright.config.ts](playwright.config.ts)), so you don't need Node, browsers, or any local install — just Docker.
+
+```bash
+git clone https://github.com/Sandeepnarayan333/EventThat.git
+cd EventThat
+docker compose run --rm tests
+```
+
+The HTML report is written to `./playwright-report/` on the host (via a volume mount), so open `playwright-report/index.html` afterward, or run:
+
+```bash
+npx playwright show-report   # requires Node locally
+# or, without Node:
+python3 -m http.server --directory playwright-report 9223
+```
+
+To run a single spec or pass extra Playwright flags, override the container command:
+
+```bash
+docker compose run --rm tests npx playwright test tests/booking-management.spec.js -g "test name"
+```

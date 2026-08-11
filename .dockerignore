@@ -1,0 +1,11 @@
+**/node_modules
+frontend
+backend
+docs
+.claude
+.github
+.git
+playwright-report
+test-results
+*.md
+.DS_Store
